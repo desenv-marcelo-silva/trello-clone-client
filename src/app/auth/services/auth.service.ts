@@ -11,7 +11,10 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class AuthService {
   currentUser$ = new BehaviorSubject<CurrentUserInterface | null | undefined>(undefined);
-  
+  isLoggedIn$ = this.currentUser$.pipe(
+    filter((currentUser) => currentUser !== undefined),
+    map(Boolean)
+  );
 
   constructor(private http: HttpClient) { }
 
