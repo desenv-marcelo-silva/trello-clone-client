@@ -31,12 +31,10 @@ export class RegisterComponent {
     
     this.authService.register(registerRequest).subscribe({
       next: (currentUser) => {
-        console.log('currentUser', currentUser);
         this.authService.setToken(currentUser);
         this.authService.setCurrentUser(currentUser);
       },
       error: (err: HttpErrorResponse) => {
-        console.error('err', err.error);
         this.errors = err.error.join(', ');
       }
     })
