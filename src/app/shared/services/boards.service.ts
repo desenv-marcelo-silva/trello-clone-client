@@ -9,6 +9,5 @@ export class BoardsService {
     getBoards(): Observable<BoardInterface[]> {
         const url = environment.apiUrl + '/boards';
         return this.http.get<BoardInterface[]>(url);
-        
     }
 }
