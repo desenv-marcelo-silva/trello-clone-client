@@ -6,8 +6,7 @@
         *ngIf="!isEditing">{{ defaultTextProps }}</div>
     <form [formGroup]="inLineForm"
           (ngSubmit)="onSubmit()"
-          *ngIf="isEditing"
-          class="inline-form">
+          *ngIf="isEditing">
           <input type="text" 
                  class="inline-form-input"
                  formControlName="title"
@@ -16,7 +15,7 @@
                  />
         <textarea class="inline-form-input"
                  formControlName="title"
-                 *ngIf="inputTypeProps === 'input'"></textarea>
+                 *ngIf="inputTypeProps === 'textarea'"></textarea>
         <button class="inline-form-button"
                 type="submit"
                 [disabled]="inLineForm.invalid"

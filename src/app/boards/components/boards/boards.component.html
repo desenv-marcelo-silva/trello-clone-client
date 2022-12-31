@@ -1,1 +1,34 @@
-<h1>board component</h1>
+app top bar
+<div class="boards-page-container">
+    <div class="home-left-sidebar-container">
+        <div class="home-left-sidebar">
+            <a routerlink="/boards" 
+                class="boards-side-menu-option"
+                routerLinkActive="boards-side-menu-option-selected">Boards</a>
+            <a routerlink="/home" 
+                class="boards-side-menu-option"
+                routerLinkActive="boards-side-menu-option-selected"
+                [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </div>
+    </div>
+    <div class="boards-section-container">
+            <div class="my-boards">
+                <div class="my-boards-section-header">
+                    <div class="boards-page-header-name">My boards</div>
+                </div>
+                <div class="board-tile-list">
+                    <in-line-form
+                        class="create-board-form"
+                        defaultText="Create new board"
+                        inputType="input"
+                        (handleSubmit)="createBoard($event)"
+                    ></in-line-form>
+                    <a [routerLink]="['/boards', board.id]"
+                        *ngFor="let board of boards"
+                        class="board-tile">
+                        <div class="board-tile-details-name">{{board.title}}</div>
+                    </a>
+                </div>
+            </div>
+    </div>
+</div>
