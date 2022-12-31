@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BoardsComponent } from 'src/app/boards/components/boards/boards.component';
 import { AuthGuardService } from 'src/app/auth/services/auth.guard.service';
-import { BoardsService } from '../shared/services/boards.service';
-import { InLineFormModule } from '../modules/inlineform/in-line-form.module';
+import { BoardsService } from 'src/app/shared/services/boards.service';
+import { InLineFormModule } from 'src/app/modules/inlineform/in-line-form.module';
+import { TopBarModule } from 'src/app/modules/top-bar/top-bar.module';
 
 const routes: Routes = [
     {
@@ -19,7 +20,9 @@ const routes: Routes = [
     imports: [
         CommonModule, 
         RouterModule.forChild(routes),
-    InLineFormModule],
+        InLineFormModule,
+        TopBarModule
+    ],
     declarations: [BoardsComponent],
     providers: [BoardsService]
 })
